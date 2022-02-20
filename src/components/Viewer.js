@@ -8,7 +8,7 @@ const Viewer = () => {
     const fileUrl = urlParams.get('file');
     const viewer = urlParams.get('viewer');
     console.log(viewer, fileUrl)
-    if (viewer == 'image') {
+    if (viewer != 'image') {
         if (fileUrl) {
             return (
                 <div className="viewer">
@@ -19,13 +19,13 @@ const Viewer = () => {
                     </DocumentViewer>
                 </div>
             );
-        } else { return <div>Set File File</div> }
+        } else { return <div>Set File</div> }
     } if (viewer) {
         if (fileUrl) {
             return (
-                <img src="https://image.shutterstock.com/image-vector/sample-stamp-grunge-texture-vector-260nw-1389188336.jpg"></img>
+                <img src={fileUrl}></img>
             );
-        }
+        } else { return <div>Set File</div> }
     } else { return <div>Set Viewer</div> }
 }
 
